@@ -5,7 +5,7 @@ var lastname = "Kaltepoth";
 var person = {
   firstname: "Christian",
   lastname: lastname,
-  greet: function(){
+  greet: function() {
     return "Hello " + this.firstname + " " + this.lastname;
   }
 };
