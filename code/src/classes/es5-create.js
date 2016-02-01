@@ -11,3 +11,4 @@ Person.prototype.greet = function() {
 var christian = new Person("Christian");
 
 console.info(christian.greet());
+// > Hello Christian

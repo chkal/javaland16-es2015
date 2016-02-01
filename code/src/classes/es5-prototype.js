@@ -6,8 +6,8 @@ var person = {
   }
 };
 
-var christian = Object.create(person, {
-  name: "Christian"
-});
+var christian = Object.create(person);
+christian.name = "Christian";
 
 console.info(christian.greet());
+// > Hello Christian
