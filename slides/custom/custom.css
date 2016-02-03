@@ -80,3 +80,7 @@ body {
 .reveal table td {
   vertical-align: top;
 }
+
+.reveal .slides section .fragment.hl-current.current-fragment {
+  color: #1b91ff;
+}

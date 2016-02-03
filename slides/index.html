@@ -80,6 +80,108 @@
         </section>
 
         <section>
+          <h1>ECMAScript</h1>
+          <h2>aka</h2>
+          <h1>JavaScript</h1>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * ECMAScript = Standard
+              * JavaScript = Trademark
+            </script>
+          </aside>
+        </section>
+
+        <section>
+          <h2>History</h2>
+          <ul>
+            <li class="fragment hl-current">ECMAScript 1: 1997</li>
+            <li class="fragment hl-current">ECMAScript 2: 1998 (alignment)</li>
+            <li class="fragment hl-current">ECMAScript 3: 1999 (regex, exceptions, ..)</li>
+            <li class="fragment hl-current">ECMAScript 4: killed in 2007</li>
+            <li class="fragment hl-current">ECMAScript 5: 2009 (strict mode, JSON, ...)</li>
+            <li class="fragment hl-current">ECMAScript 6: 2015 (major update)</li>
+            <li class="fragment hl-current">ECMAScript 7: 2016? (WIP)</li>
+          </ul>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * 1, 2, 3
+              * Pause
+              * 4: Abbruch
+              * 5; Minimale Änderungen
+              * 6: Harmony
+            </script>
+          </aside>
+        </section>
+
+        <section>
+          <h1>Show me code!</h1>
+        </section>
+
+        <section>
+          <h2>ES5 Scoping</h2>
+          <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
+function someFunction() {
+
+  for( var i = 0; i < 4; i++ ) {
+    var j = i * i;
+  }
+
+  console.log( j );
+
+}
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>ES5 Hosting</h2>
+          <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
+function someFunction() {
+
+  var j;  // hoisting
+
+  for( var i = 0; i < 4; i++ ) {
+    j = i * i;
+  }
+
+  console.log( j );
+  // > 9
+
+}
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>ES5 IIFE</h2>
+          <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
+(function(){
+
+  var secret = "42";
+
+})();
+
+console.log(secret);
+// > ReferenceError: secret is not defined
+          </code></pre>
+        </section>
+
+
+        <section>
+          <h2>ES2015 Block Scope</h2>
+          <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
+function someFunction() {
+
+  for(var i = 0; i < 4; i++) {
+    let j = i * i;
+  }
+
+  console.log(j);
+  // > ReferenceError: j is not defined
+
+}
+          </code></pre>
+        </section>
+
+        <section>
           <h1>Danke!</h1>
           <h2>Fragen?</h2>
           <div class="mono" style="margin-top: 10%;">

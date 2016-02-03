@@ -1,8 +1,14 @@
 #!/usr/bin/env node
 
-for(var i = 0; i < 4; i++) {
-  var j = i * i;
+function someFunction() {
+
+  for(var i = 0; i < 4; i++) {
+    var j = i * i;
+  }
+
+  console.log(j);
+  // > 9
+
 }
 
-console.log(j);
-// > 9
+someFunction();
