@@ -10,4 +10,4 @@ for(var i=0; i<primes.length; i++) {
 // ES5
 primes.forEach(function(p){
   console.log(p);
-})
+});

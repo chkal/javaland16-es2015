@@ -9,6 +9,6 @@ for( let p of primes) {
 const set = new Set();
 set.add("foo").add("bar").add("foo");
 
-for( let s of set) {
+for( let s of set ) {
   console.log( s );
 }
