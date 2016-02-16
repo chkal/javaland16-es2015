@@ -196,7 +196,7 @@ function someFunction() {
 const users = [ "Christian" ];
 
 users.push( "Jim" );
-// 2
+// > 2
 
 users = [ "Bob" ];
 // > SyntaxError: "users" is read-only
@@ -221,27 +221,32 @@ var odd = numbers.filter(function(n) {
   return n % 2 !== 0;
 });
 
-console.info( odd );
+console.log( odd );
 // > [ 1, 3, 5, 7, 9 ]
           </code></pre>
         </section>
 
         <section>
           <h2>ES2015 Arrow Functions</h2>
-          <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
-const numbers = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
-
+          <pre class="fragment" style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
 numbers.filter( n => {
   return n % 2 !== 0;
 });
 // > [ 1, 3, 5, 7, 9 ]
-
+          </code></pre>
+          <pre class="fragment" style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
 numbers.filter( n => n % 2 !== 0 );
 // > [ 1, 3, 5, 7, 9 ]
-
+          </code></pre>
+          <pre class="fragment" style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
 numbers.filter( n => n % 2 );
 // > [ 1, 3, 5, 7, 9 ]
           </code></pre>
+        </section>
+
+        <section>
+          <h1>Arrow Functions</h1>
+          <h2>!!! Lexical this binding !!!</h2>
         </section>
 
         <section>
@@ -249,7 +254,7 @@ numbers.filter( n => n % 2 );
         </section>
 
         <section>
-          <h2>ES5 object literals</h2>
+          <h2>ES5 Object Literal</h2>
           <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
 var lastname = "Kaltepoth";
 
@@ -265,7 +270,7 @@ var person = {
         </section>
 
         <section>
-          <h2>ES6 enhanced object literals</h2>
+          <h2>ES2015 Enhanced Object Literal</h2>
           <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
 const lastname = "Kaltepoth";
 
@@ -285,7 +290,7 @@ const person = {
         </section>
 
         <section>
-          <h2>ES5 strings</h2>
+          <h2>ES5 String Concatenation</h2>
           <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
 var name = "Christian";
 var count = 213;
@@ -293,12 +298,12 @@ var count = 213;
 var message = "Hello " + name + ", you have "
     + count + " unread messages.";
 
-console.info(message);
+console.log( message );
           </code></pre>
         </section>
 
         <section>
-          <h2>ES6 template strings</h2>
+          <h2>ES2015 Template Strings</h2>
           <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
 const name = "Christian";
 const count = 213;
@@ -315,7 +320,7 @@ const html =
         </section>
 
         <section>
-          <h2>ES6 template strings</h2>
+          <h2>ES2015 Template Strings</h2>
           <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
 const name = "Christian";
 const count = 213;
@@ -324,36 +329,36 @@ const total = 500;
 const greeting =
     `Hello ${name.toUpperCase()}!`;
 
-const message  =
+const message =
     `Unread ratio: ${ 100 * count / total }%`;
           </code></pre>
         </section>
 
         <section>
-          <h1>Collection types</h1>
+          <h1>Collection Types</h1>
         </section>
 
         <section>
-          <h2>ES6 collections</h2>
+          <h2>ES2015 Collections</h2>
           <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
 const tags = new Set();
-tags.add("java");
-tags.add("javascript");
-tags.add("java");
-tags.size === 2
+tags.add( "java" );
+tags.add( "javascript" );
+tags.add( "java" );
+tags.size === 2;
 // > true
-tags.has("java")
+tags.has( "java" );
 // > true
 
 const map = new Map();
-map.set("hello", 42);
-map.get("hello")
+map.set( "hello", 42 );
+map.get( "hello" );
 // > 42
           </code></pre>
         </section>
 
         <section>
-          <h2>ES5 iteration</h2>
+          <h2>ES5 Iteration</h2>
           <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
 var primes = [ 3, 5, 7, 11, 13 ];
 
@@ -363,14 +368,14 @@ for( var i = 0; i &lt; primes.length; i++ ) {
 }
 
 // ES5
-primes.forEach( function(p) {
-  console.log( p );
+primes.forEach( function(n) {
+  console.log( n );
 });
           </code></pre>
         </section>
 
         <section>
-          <h2>ES6 for..of</h2>
+          <h2>ES2015 for..of</h2>
           <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
 const primes = [ 3, 5, 7, 11, 13 ];
 
@@ -379,8 +384,8 @@ for( let p of primes ) {
 }
 
 const set = new Set();
-set.add("foo");
-set.add("bar");
+set.add( "foo" );
+set.add( "bar" );
 
 for( let s of set ) {
   console.log( s );
@@ -393,9 +398,9 @@ for( let s of set ) {
         </section>
 
         <section>
-          <h2>Default parameters</h2>
+          <h2>Default Parameters</h2>
           <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
-function add(a, b = 10) {
+function add( a, b = 10 ) {
   return a + b;
 }
 
@@ -408,29 +413,30 @@ console.log( add( 3 ) );
         </section>
 
         <section>
-          <h2>Rest parameters</h2>
+          <h2>Rest Parameters</h2>
           <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
-function format(message, ...params) {
-  for(let p of params) {
-    message = message.replace(/\?/, p);
+function format( message, ...params ) {
+  for( let p of params ) {
+    message = message.replace( /\?/, p );
   }
   return message;
 }
 
-format( "Die Summe von ? und ? ist ?", 3, 7, 10);
+format( "Die Summe von ? und ? ist ?", 3, 7, 10 );
 // > Die Summe von 3 und 7 ist 10
           </code></pre>
         </section>
 
         <section>
-          <h2>Spread parameters</h2>
+          <h2>Spread Parameters</h2>
           <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
-console.info( Math.max(1, 5, 2, 3) );
+console.log( Math.max( 1, 5, 2, 3 ) );
 // > 5
-
+          </code></pre>
+          <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
 const numbers = [ 1, 5, 2, 3 ];
 
-console.info( Math.max(...numbers) );
+console.log( Math.max(...numbers) );
 // > 5
           </code></pre>
         </section>
@@ -440,10 +446,11 @@ console.info( Math.max(...numbers) );
           <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
 const text = "a,b,c,d,e";
 
-console.log( text.split(/,/) );
+console.log( text.split( /,/ ) );
 // > ["a", "b", "c", "d", "e"]
-
-const [ first, second ] = text.split(/,/);
+          </code></pre>
+          <pre class="fragment" style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
+const [ first, second ] = text.split( /,/ );
 
 console.log( first );
 // > "a"
@@ -458,7 +465,7 @@ console.log( second );
         </section>
 
         <section>
-          <h2>Constructor functions</h2>
+          <h2>ES5: Constructor Functions</h2>
           <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
 var Person = function( name ) {
   this.name = name;
@@ -476,7 +483,7 @@ christian.greet();
         </section>
 
         <section>
-          <h2>Object.create()</h2>
+          <h2>ES5: Object.create()</h2>
           <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
 var person = {
   greet: function() {
@@ -494,7 +501,7 @@ christian.greet();
         </section>
 
         <section>
-          <h2>ES6 Classes</h2>
+          <h2>ES2015 Classes</h2>
           <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
 class Person {
 
@@ -514,17 +521,17 @@ christian.greet();
         </section>
 
         <section>
-          <h2>ES6 Inheritance</h2>
+          <h2>ES2015 Inheritance</h2>
           <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
 class Developer extends Person {
 
-  constructor(name, languages) {
-    super(name);
+  constructor( name, languages ) {
+    super( name );
     this.languages = languages;
   }
 
   getLanguages() {
-    return this.languages.join(", ");
+    return this.languages.join( ", " );
   }
 }
 
@@ -628,9 +635,13 @@ function* sequence( max ) {
 }
 
 for( let i of sequence(10) ) {
-  console.info(i);
+  console.log(i);
 }
           </code></pre>
+        </section>
+
+        <section>
+          <h1>Can I use this stuff?</h1>
         </section>
 
         <section>
