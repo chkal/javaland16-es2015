@@ -78,19 +78,23 @@
                 * Webbasierte Unternehmensanw.
                 * Hinter Firewall
               * Open Source
-              * JSR 371 EG
             </script>
           </aside>
         </section>
 
         <section>
-          <h1>ECMAScript</h1>
-          <h2>aka</h2>
           <h1>JavaScript</h1>
+          <h2>aka</h2>
+          <h1>ECMAScript</h1>
           <aside class="notes" data-markdown>
             <script type="text/template">
-              * ECMAScript = Standard
-              * JavaScript = Trademark
+              * JavaScript
+                * Ursprünglicher Name
+                * Netscape
+                * Trademark - Sun/Oracle
+              * ECMAScript
+                * ECMA Standard / ISO
+                * SpiderMonkey, V8, JScript/Chakra, ActionScript
             </script>
           </aside>
         </section>
@@ -123,6 +127,12 @@
 
         <section>
           <h1>Block Scope</h1>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Selbstverständlich für Java Devs?
+              * JavaScript ist anders...
+            </script>
+          </aside>
         </section>
 
         <section>
@@ -139,6 +149,14 @@ function someFunction() {
 
 }
           </code></pre>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Was passiert?
+                * Fehler?
+                * Fehlerfrei?
+              * Antwort: 9
+            </script>
+          </aside>
         </section>
 
         <section>
@@ -157,6 +175,15 @@ function someFunction() {
 
 }
           </code></pre>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Hosting
+                * Dekl. -> Scope Anfang
+              * Scopes
+                * Funktionen
+                * KEINE Blöcke
+            </script>
+          </aside>
         </section>
 
         <section>
@@ -171,6 +198,13 @@ function someFunction() {
 console.log( secret );
 // > ReferenceError: secret is not defined
           </code></pre>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Lösung ES5
+                * IIFE
+                * Künstlicher Block-Scope
+            </script>
+          </aside>
         </section>
 
 
@@ -188,6 +222,12 @@ function someFunction() {
 
 }
           </code></pre>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * ES2015
+                * let statt var
+            </script>
+          </aside>
         </section>
 
         <section>
@@ -201,15 +241,40 @@ users.push( "Jim" );
 users = [ "Bob" ];
 // > SyntaxError: "users" is read-only
           </code></pre>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * const
+                * Wie `let`
+                * Kein Hosting
+                * Block Scope
+                * Konstante
+              * Java: `final`
+            </script>
+          </aside>
         </section>
 
         <section>
           <h1>Recommendation</h1>
           <h1>Prefer const over let</h1>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Tipp:
+                * Meist `const` sinnvoll
+                * `let` nur falls veränderbar
+              * SEHR häufig
+              * Var. Wiederverw.
+                * Anti-Pattern
+            </script>
+          </aside>
         </section>
 
         <section>
           <h1>Arrow Functions</h1>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Funktonen bisher...
+            </script>
+          </aside>
         </section>
 
         <section>
@@ -224,6 +289,15 @@ var odd = numbers.filter(function(n) {
 console.log( odd );
 // > [ 1, 3, 5, 7, 9 ]
           </code></pre>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Beispiel: Ungerade Zahlen
+              * Higher Order Functions
+              * Probleme
+                * `function` keyword
+                * `this` wird umdefiniert
+            </script>
+          </aside>
         </section>
 
         <section>
@@ -242,6 +316,18 @@ numbers.filter( n => n % 2 !== 0 );
 numbers.filter( n => n % 2 );
 // > [ 1, 3, 5, 7, 9 ]
           </code></pre>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Gleiches Beispiel
+              * Block #1:
+                * Arrow syntax
+                * Ähnlich Java Lamda
+              * Block #2:
+                * 1 Statement -> Kein {} und ;
+              * Block #3:
+                * Zahl != 0 -> Truthy
+            </script>
+          </aside>
         </section>
 
         <section>
@@ -251,6 +337,13 @@ numbers.filter( n => n % 2 );
 
         <section>
           <h1>Object Literals</h1>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Syntax Sugar
+              * Kein großes Feature
+              * Aber häufig genutzt
+            </script>
+          </aside>
         </section>
 
         <section>
@@ -267,6 +360,9 @@ var person = {
   }
 };
           </code></pre>
+          <script type="text/template">
+            * Object literal
+          </script>
         </section>
 
         <section>
@@ -283,10 +379,21 @@ const person = {
   }
 };
           </code></pre>
+          <script type="text/template">
+            * Simpler version
+          </script>
+
         </section>
 
         <section>
           <h1>Template Strings</h1>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Sehr häufig genutzt
+              * Bekannt aus Groovy
+              * Java bisher nicht
+            </script>
+          </aside>
         </section>
 
         <section>
@@ -300,23 +407,44 @@ var message = "Hello " + name + ", you have "
 
 console.log( message );
           </code></pre>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Stringbau per +
+              * Frage:
+                * Wer macht das so?
+                * Wer will was Bessers?
+            </script>
+          </aside>
         </section>
 
         <section>
           <h2>ES2015 Template Strings</h2>
-          <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
+          <pre class="fragment" style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
 const name = "Christian";
 const count = 213;
 
 const message =
     `Hello ${name}, you have ${count} messages.`;
-
+          </code></pre>
+          <pre class="fragment" style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
 const html =
     `<h1>Hello ${name}</h1>
      <p>
        You have ${count} unread messages
      </p>`;
+
           </code></pre>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Block 1:
+                * Unterschiede:
+                  * Backtick als Delimiter
+                  * EL-Ausdrücke in String
+                * -> Besser lesbar
+              * Block 2:
+                * Multiline Strings
+            </script>
+          </aside>
         </section>
 
         <section>
@@ -332,33 +460,85 @@ const greeting =
 const message =
     `Unread ratio: ${ 100 * count / total }%`;
           </code></pre>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Nicht nur Variablen
+              * Methodenaufrufe
+              * Komplexe Ausdrücke
+              * <u>Also:</u>
+                * Wunschliste für Java
+            </script>
+          </aside>
         </section>
 
         <section>
           <h1>Collection Types</h1>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Java:
+                * selbstverständlich
+                * JDK 1.2 - 1998 (16j)
+              * JavaScript:
+                * Neu
+            </script>
+          </aside>
         </section>
 
         <section>
-          <h2>ES2015 Collections</h2>
+          <h2>ES2015 Sets</h2>
           <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
 const tags = new Set();
+
 tags.add( "java" );
 tags.add( "javascript" );
 tags.add( "java" );
+
 tags.size === 2;
 // > true
+
 tags.has( "java" );
 // > true
-
-const map = new Map();
-map.set( "hello", 42 );
-map.get( "hello" );
-// > 42
           </code></pre>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Bisher:
+                * Gab es nicht!
+              * Jetzt:
+                * Wie Java Sets
+                * Method Chaining
+            </script>
+          </aside>
         </section>
 
         <section>
-          <h2>ES5 Iteration</h2>
+          <h2>ES2015 Maps</h2>
+          <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
+const map = new Map();
+
+map.set( "hello", 42 );
+
+map.size === 1;
+// > true
+
+map.get( "hello" );
+// > 42
+
+map.delete( "hello" );
+// > true
+          </code></pre>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Bisher:
+                * Objekte
+              * Jetzt
+                * Wie Java Maps
+                * Nicht nur String als Key
+            </script>
+          </aside>
+        </section>
+
+        <section>
+          <h2>ES3/ES5 Iteration</h2>
           <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
 var primes = [ 3, 5, 7, 11, 13 ];
 
@@ -372,29 +552,53 @@ primes.forEach( function(n) {
   console.log( n );
 });
           </code></pre>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Iteration
+              * ES3:
+                * for-Schleife mit Zähler
+              * ES5:
+                * Funktionale Iteration
+            </script>
+          </aside>
         </section>
 
         <section>
           <h2>ES2015 for..of</h2>
           <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
+// array
 const primes = [ 3, 5, 7, 11, 13 ];
-
 for( let p of primes ) {
   console.log( p );
 }
 
+// collection
 const set = new Set();
 set.add( "foo" );
 set.add( "bar" );
-
 for( let s of set ) {
   console.log( s );
 }
           </code></pre>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Jetzt:
+                * `for..of` Loop
+                * Wie Java `for-each`
+                * Arrays + `Iterable`
+            </script>
+          </aside>
         </section>
 
         <section>
           <h1>Default + Rest + Spread</h1>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Gruppe von Features
+                * Parameter
+                * Deklarationen
+            </script>
+          </aside>
         </section>
 
         <section>
@@ -410,6 +614,18 @@ console.log( add( 3, 5 ) );
 console.log( add( 3 ) );
 // > 13
           </code></pre>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Jetzt
+                * Optionaler Parameter
+                * Default Value
+              * Bisher
+                * `arguments` Array
+              * Aus C#
+              * Java
+                * Mehrere Methoden :(
+            </script>
+          </aside>
         </section>
 
         <section>
@@ -425,20 +641,40 @@ function format( message, ...params ) {
 format( "Die Summe von ? und ? ist ?", 3, 7, 10 );
 // > Die Summe von 3 und 7 ist 10
           </code></pre>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Java:
+                * Varargs
+              * JavaScript:
+                * Ähnlich
+                * Achtung: Punkte vor Var
+              * Beispiel:
+                * `String.format()`
+            </script>
+          </aside>
         </section>
 
         <section>
           <h2>Spread Parameters</h2>
-          <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
+          <pre class="fragment" style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
 console.log( Math.max( 1, 5, 2, 3 ) );
 // > 5
           </code></pre>
-          <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
+          <pre class="fragment" style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
 const numbers = [ 1, 5, 2, 3 ];
 
 console.log( Math.max(...numbers) );
 // > 5
           </code></pre>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Gegenteil von Rest
+              * Java:
+                * Geht bei Varargs
+              * JavaScript
+                * Bei ALLEN Funktionen
+            </script>
+          </aside>
         </section>
 
         <section>
@@ -458,10 +694,20 @@ console.log( first );
 console.log( second );
 // > "b"
           </code></pre>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * ...
+            </script>
+          </aside>
         </section>
 
         <section>
           <h1>Classes</h1>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Oft als wichtigstes Feature genannt
+            </script>
+          </aside>
         </section>
 
         <section>
@@ -480,6 +726,16 @@ var christian = new Person( "Christian" );
 christian.greet();
 // > Hello Christian
           </code></pre>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Constructor Function
+                * Convention: uppercase
+              * Prototype:
+                * Methoden ( + Properties )
+              * Alternative
+                * `Object.create()`
+            </script>
+          </aside>
         </section>
 
         <section>
@@ -498,6 +754,11 @@ christian.name = "Christian";
 christian.greet();
 // > Hello Christian
           </code></pre>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * ...
+            </script>
+          </aside>
         </section>
 
         <section>
@@ -518,6 +779,14 @@ const christian = new Person("Christian");
 christian.greet();
 // > Hello Christian
           </code></pre>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Wow! Klassen!
+              * Bekannte Struktur
+              * ABER:
+                * Nur Syntax Sugar
+            </script>
+          </aside>
         </section>
 
         <section>
@@ -538,10 +807,23 @@ class Developer extends Person {
 const christian = new Developer( "Christian",
     [ "Java", "JavaScript" ] );
           </code></pre>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Bisher:
+                * Vererbung schwierig
+              * Jetzt:
+                * Deutlich einfacher
+            </script>
+          </aside>
         </section>
 
         <section>
           <h1>Modules</h1>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * IMO Bestes Feature!
+            </script>
+          </aside>
         </section>
 
         <section>
