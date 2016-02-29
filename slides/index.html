@@ -822,13 +822,14 @@ const christian = new Developer( "Christian",
           <aside class="notes" data-markdown>
             <script type="text/template">
               * IMO Bestes Feature!
+              * Strukturierung wie Java
             </script>
           </aside>
         </section>
 
         <section>
           <h2>Export / Import</h2>
-          <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
+          <pre class="fragment" style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
 // math.js
 export function max(a, b) {
   return a > b ? a : b;
@@ -836,12 +837,21 @@ export function max(a, b) {
 
 export const PI = 3.14156;
           </code></pre>
-          <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
+          <pre class="fragment" style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
 import { max, PI } from "./math.js";
 
 max(9, 13) === 13;       // > true
 PI === 3.14156;          // > true
           </code></pre>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Block #1
+                * Expliziter Export
+                * Java: `public`
+              * Block #2
+                * Import aus anderen Dateien
+            </script>
+          </aside>
         </section>
 
         <section>
@@ -860,11 +870,18 @@ import * as math from "./math.js";
 math.max(9, 13) === 13   // > true
 math.PI === 3.14156      // > true
           </code></pre>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Block #2
+                * Alles importieren
+                * Benanntes Object
+            </script>
+          </aside>
         </section>
 
         <section>
           <h2>Default Exports</h2>
-          <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
+          <pre class="fragment" style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
 // person.js
 export default class Person {
 
@@ -874,15 +891,31 @@ export default class Person {
 
 }
           </code></pre>
-          <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
+          <pre class="fragment" style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
 import Person from "./person.js";
 
 const christian = new Person("Christian");
           </code></pre>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Block #1
+                * Neben `export` auch `default`
+                * Oft für Klassen
+              * Block #2
+                * Ohne Klammern
+                * Umbenennung möglich
+            </script>
+          </aside>
         </section>
 
         <section>
           <h1>Generators</h1>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Letztes Feature
+              * Exotisch für Java Devs
+            </script>
+          </aside>
         </section>
 
         <section>
@@ -903,6 +936,19 @@ seq.next(); // > { value: 2, done: false }
 seq.next(); // > { value: 3, done: false }
 seq.next(); // > { value: undefined, done: true }
           </code></pre>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Function
+                * Mit `*` Zusatz
+                * `yield` wie `return`
+                * Mit Rücksprung
+              * Benutzung
+                * Aufruf -> `Generator`
+              * <u>Next:</u>
+                * `Iterable`
+                * `Iterator`
+            </script>
+          </aside>
         </section>
 
         <section>
@@ -920,10 +966,28 @@ for( let i of sequence(10) ) {
   console.log(i);
 }
           </code></pre>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Function
+                * Config Argument
+              * Benutzung
+                * Generator ist `Iterable`
+                * Direkte Nutzung von `for..of`
+              * <u>Außerdem</u>
+                * Async -> Sync
+            </script>
+          </aside>
         </section>
 
         <section>
           <h1>Can I use this stuff?</h1>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Viele schöne Features
+              * Kann man es heute benutzen
+              * Funktioniert das in IE8? :)
+            </script>
+          </aside>
         </section>
 
         <section>
@@ -932,6 +996,18 @@ for( let i of sequence(10) ) {
           <a href="https://kangax.github.io/compat-table/es6/">
             https://kangax.github.io/compat-table/es6/
           </a>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Link + Zoom
+              * Tabelle:
+                * Zeilen: Features
+                * Spalten: Runtimes (Browser)
+              * Auffällig:
+                * Edge bester Browser
+                * Modern Browser OK
+                * **Compiler**
+            </script>
+          </aside>
         </section>
 
         <section>
@@ -940,6 +1016,11 @@ for( let i of sequence(10) ) {
           <a href="https://babeljs.io/repl/#?experimental=false&evaluate=true&loose=false&spec=false&code=%0Alet%20numbers%20%3D%20%0A%20%20%5B%201%2C%202%2C%203%2C%204%2C%205%2C%206%2C%207%2C%208%2C%209%20%5D%3B%0A%0Alet%20odd%20%3D%20numbers.filter(%20n%20%3D%3E%20n%20%25%202%20)%3B%0A%0Aconsole.log(%20%60Count%3A%20%24%7Bodd.length%7D%60%20)%3B%0A">
             https://babeljs.io/repl/
           </a>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Link + Zoom
+            </script>
+          </aside>
         </section>
 
         <section>
@@ -954,6 +1035,19 @@ for( let i of sequence(10) ) {
             <li class="fragment">Karma / Jasmine</li>
             <li class="fragment">more...</li>
           </ul>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Problem:
+                * Zwei Welten
+                * JavaScript vs Java Tooling
+              * Integation:
+                * Installation von Node
+                * Webpack Module Bundler
+                * Testing
+              * Besonders Feature:
+                * Dev Experience
+            </script>
+          </aside>
         </section>
 
         <section>
