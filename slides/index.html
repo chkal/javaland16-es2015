@@ -264,6 +264,7 @@ users = [ "Bob" ];
             <script type="text/template">
               * Tipp:
                 * Meist `const` sinnvoll
+                * Beweis in diesem Talk
                 * `let` nur falls veränderbar
               * SEHR häufig
               * Var. Wiederverw.
@@ -286,9 +287,9 @@ users = [ "Bob" ];
           <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
 var numbers = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
 
-var odd = numbers.filter(function(n) {
+var odd = numbers.filter( function(n) {
   return n % 2 !== 0;
-});
+} );
 
 console.log( odd );
 // > [ 1, 3, 5, 7, 9 ]
@@ -554,7 +555,7 @@ for( var i = 0; i &lt; primes.length; i++ ) {
 // ES5
 primes.forEach( function(n) {
   console.log( n );
-});
+} );
           </code></pre>
           <aside class="notes" data-markdown>
             <script type="text/template">
@@ -570,13 +571,13 @@ primes.forEach( function(n) {
         <section>
           <h2>ES2015 for..of</h2>
           <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
-// array
+// arrays
 const primes = [ 3, 5, 7, 11, 13 ];
 for( let p of primes ) {
   console.log( p );
 }
 
-// collection
+// collections
 const set = new Set();
 set.add( "foo" );
 set.add( "bar" );
