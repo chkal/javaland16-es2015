@@ -336,9 +336,51 @@ numbers.filter( n => n % 2 );
         </section>
 
         <section>
-          <h1>Arrow Functions</h1>
-          <h2>!!! Lexical this binding !!!</h2>
+          <h2>ES5 Callbacks</h2>
+          <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
+var Constructor = function() {
+
+  this.count = 0;
+
+  var _this = this;   // save 'this'
+  $( "#some-button" ).click( function() {
+    _this.count++;
+  } );
+
+};
+          </code></pre>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * `this` vom Kontext abhängig
+              * Workaround:
+                * Referenz sichern
+                * Boilerplate!
+            </script>
+          </aside>
         </section>
+
+        <section>
+          <h2>ES6 Callbacks</h2>
+          <pre style="width: 100%; font-size: 0.8em;"><code class="javascript" data-trim>
+var Constructor = function() {
+
+  this.count = 0;
+
+
+  $( "#some-button" ).click( () => {
+    this.count++;
+  } );
+
+};
+          </code></pre>
+          <aside class="notes" data-markdown>
+            <script type="text/template">
+              * Lexical `this` binding
+              * Position im Source entscheidet
+            </script>
+          </aside>
+        </section>
+
 
         <section>
           <h1>Object Literals</h1>
